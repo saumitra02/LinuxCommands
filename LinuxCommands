@@ -1,0 +1,121 @@
+VIM
+
+find . -name filename.txt
+
+to search for empty file
+find . -type f -empty
+
+find . -user username -mtime 6 -iname ".db"
+
+
+How to go to particular linr number Linux :
+press escape me , type line number (dont press :) , line number will not be visible and then press Shit+g.
+
+to print log file with line numbers = cat -n fileName
+to find number of lines in log file : cat fileName | wc -last
+to print from particular line number till end of file : sed -n '2,$p' fileName.log
+to print last line : sed  -n '$p' fileName.log
+to print all the lines which contains pattern : sed -n '/PATTERN/p' FILE.txt
+This will start printing lines from 1st pattern match till 2nd pattern match. : sed -n '/PATTERN1/,/PATTERN2/p' FILE.txt
+his will start printing lines from 1st pattern match till End  : sed -n '/PATTERN1/,$p' FILE.txt
+
+
+grep -Rw ~/  -e 'Java system properties are defined as follows'
+
+To see the difference between two files : ==> vimdiff file1 file2
+
+If you want to go to particular line number in vim, press esc key , type line number you will see in bottom , and then press shift+g it will take you that line number , and if you write shift+g without entering any line number , it will take you to the last line.
+
+
+In vim,
+to go to begining of file (in command mode )- gg
+to go to end of the file :-  shift+g
+to see fully qualified  name of current file in vim:-  press 1 and then press ctrl + G
+to see the name of current file :-
+
+
+dd--delete
+u--undo
+ctrl+r--redo
+
+search/<search string> and then press Enter , after that :-
+click n for next search and shift+n for previous search
+
+go to command mode , for following:-
+replace :%s/<string to replace>/<replaced string> --> will replace 1st string
+
+replace :%s/<string to replace>/<replaced string>/gc ->will ask confirmation to replace one by one and then replace
+
+replace :%s/<string to replace>/<replaced string>/g--> wil replace all without asking confirmation
+
+yy-copy
+
+p-paste
+
+
+Linux Commands
+
+To go to Home directory : cd ~
+To go to previous loacation before using cd command  : cd -
+
+To make directory inside directory : mkdir -p test2/test1
+
+to make text files: touch one.txt two.txt three.pdf
+
+To Display the contents of a file :-
+cat 1.log
+cat -n 1.log >>> display contents with line number
+
+
+rm -> to delete a file
+rmdir --> to delete a empty directory
+
+
+wc -l fileName//number of lines
+
+cat filename | wc -l
+
+
+ grep second file : prints the line havinng word as "second" in file named "file"
+ 
+ 
+ cat article | grep second
+ 
+ grep -o richard filename : displays richard word in file like if richard word has come 4 times then it will print richard 4 times.
+ 
+ grep -c richard filename : tell in how may lines richard word is there
+ 
+ grep -v richar filename :- shows lines not having the word richard
+ 
+ grep [[:digit:]] file :- shows line having digit
+ 
+ grep -A 2 [[:digit:]] filename  // 2 lines after matching line
+ grep -B 2 [[:digit:]] filename   // 2 lines before matching line
+ 
+ ***FIND***
+ 
+ find /home/richard -name "*.sh" -type -file  // will search in all sub directories
+  find /home/richard maxdepth 1 -name "*.sh" -type -f
+ 
+  find /home/richard maxdepth 1 -name "*.sh" -type -f -mtime 50 // files modified 50 days ago
+  +50 ==> more than 50 days ago
+  -50 ==> less than 50 days ago
+ 
+ 
+  -atime ==> when files were accessed
+ 
+  find ~ -type f size +5M > filesize more than 5 MB
+ 
+ 
+  -----------SESTION-2-------------
+  15.
+  #!/bin/bash
+  chmod a+x first_script.sh
+  chmod a-x first_script.sh
+ 
+  u+x : fileowner
+  u+x >> group file owner
+  o+x : other users
+ 
+  export : to add to PATH Variable
+  export PATH=$PATH:$(pwd)
